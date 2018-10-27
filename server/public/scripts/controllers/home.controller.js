@@ -30,7 +30,7 @@ myApp.controller('HomeController', ['HomeService', '$interval', '$http', functio
           return 'error';
         });
         
-    }
+    };
     $interval(function() { self.pollStream(); }, 1000);
    
 }]);

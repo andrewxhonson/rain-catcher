@@ -1,2 +1,4 @@
-
-{{vm}}
+<div ng-repeat="thing in vm.stream">
+    <b>{{thing.data.result}}</b>
+    {{thing.data.coreInfo.last_heard}}
+</div>
