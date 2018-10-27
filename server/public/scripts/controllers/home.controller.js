@@ -13,7 +13,7 @@ myApp.controller('HomeController', ['HomeService', '$interval', '$http', functio
       if (action) { // start
         self.drainModeLastTried = true;
 
-        $http.post('https://api.particle.io/v1/devices/1c003b000c47363339343638/drain?access_token=05700d7c927634766baf2972975055959d379d3c', 'params=on')
+        $http.post('/api/drain/on')
         .then( function(response) {
           console.log(response);
         })
@@ -24,7 +24,7 @@ myApp.controller('HomeController', ['HomeService', '$interval', '$http', functio
       } else {
         self.drainModeLastTried = false;
         
-        $http.post('https://api.particle.io/v1/devices/1c003b000c47363339343638/drain?access_token=05700d7c927634766baf2972975055959d379d3c', 'params=off')
+        $http.post('api/drain/off')
         .then( function(response) {
           console.log(response);
         })

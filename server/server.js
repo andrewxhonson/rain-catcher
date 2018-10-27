@@ -34,7 +34,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use('/api/user', userRouter);
 
 const homeRouter = require('./routes/home.router');
-app.use('/api/home', homeRouter);
+app.use('/api/', homeRouter);
+
 
 // Serve static files
 app.use(express.static('server/public'));
