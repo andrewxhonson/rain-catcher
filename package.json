@@ -1,0 +1,25 @@
+{
+  "name": "rain-catcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "angularjs": "^0.0.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewjacobjohnson/rain-catcher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewjacobjohnson/rain-catcher/issues"
+  },
+  "homepage": "https://github.com/andrewjacobjohnson/rain-catcher#readme"
+}
