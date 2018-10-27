@@ -1,3 +1,13 @@
+
+<p><b>Drain Mode:</b> {{vm.drainMode}} (last tried: {{vm.drainModeLastTried}})</p>
+
+<button ng-if="!vm.drainModeLastTried" ng-click="vm.drain(true)">Start Draining</button>
+<button ng-if="vm.drainModeLastTried" ng-click="vm.drain(false)">Stop Draining</button>
+
+<br />
+<br />
+<br />
+
 <div ng-repeat="thing in vm.stream">
     <b>{{thing.data.result}}</b>
     {{thing.data.coreInfo.last_heard}}
