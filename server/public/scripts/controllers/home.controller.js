@@ -44,21 +44,21 @@ myApp.controller('HomeController', ['HomeService', '$interval', '$http', functio
     //   $interval(self.pollStream, 1000);
     // }
     
-    this.pollStream = function() {
+    // this.pollStream = function() {
       
-      $http.get('https://api.particle.io/v1/devices/1c003b000c47363339343638/analogvalue?access_token=05700d7c927634766baf2972975055959d379d3c')
-        .then( function(response) {
+    //   $http.get('https://api.particle.io/v1/devices/1c003b000c47363339343638/analogvalue?access_token=05700d7c927634766baf2972975055959d379d3c')
+    //     .then( function(response) {
 
-          self.stream.unshift(response);
-          console.log('response');
-          return response.data;
-        })
-        .catch( function(error) {
-          console.log(error);
-          return 'error';
-        });
+    //       self.stream.unshift(response);
+    //       console.log('response');
+    //       return response.data;
+    //     })
+    //     .catch( function(error) {
+    //       console.log(error);
+    //       return 'error';
+    //     });
         
-    };
-    $interval(function() { self.pollStream(); }, 1000);
+    // };
+    // $interval(function() { self.pollStream(); }, 5000);
    
 }]);

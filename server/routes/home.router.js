@@ -25,6 +25,13 @@ router.post('/drain/on', (req, res) => {
     res.send(response.data);
   })
   .catch((error) => {
+    console.log(`
+    
+    
+    
+    ERROR
+    
+    `);
     console.log(error);
     res.sendStatus(500);
   });
