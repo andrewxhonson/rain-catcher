@@ -14,7 +14,27 @@ const router = express.Router();
 const axios = require('axios');
 
 
-router.post('/drain/on', (req, res) => {
+router.get('/drainStatus', (req, res) => {
+  axios({
+      url: 'https://api.particle.io/v1/devices/1c003b000c47363339343638/isDraining?access_token=05700d7c927634766baf2972975055959d379d3c',
+      method: 'get'
+  })
+  .then((response) => {
+    console.log(response.data);
+    res.send(response.data);
+  })
+  .catch((error) => {
+    console.log(`
+
+    ERROR IN DRAIN STATUS
+    
+    `);
+    console.log(error);
+    res.sendStatus(500);
+  });
+});
+
+router.get('/drain/on', (req, res) => {
   axios({
       url: 'https://api.particle.io/v1/devices/1c003b000c47363339343638/drainMode?access_token=05700d7c927634766baf2972975055959d379d3c',
       method: 'post',
@@ -29,16 +49,17 @@ router.post('/drain/on', (req, res) => {
     
     
     
-    ERROR
+    ERROR IN DRAIN ON
     
     `);
     console.log(error);
-    res.sendStatus(500);
+    res.send(response.data);
+    // res.sendStatus(500);
   });
 });
 
 
-router.post('/drain/off', (req, res) => {
+router.get('/drain/off', (req, res) => {
   axios({
       url: 'https://api.particle.io/v1/devices/1c003b000c47363339343638/drainMode?access_token=05700d7c927634766baf2972975055959d379d3c',
       method: 'post',
@@ -49,8 +70,16 @@ router.post('/drain/off', (req, res) => {
     res.send(response.data);
   })
   .catch((error) => {
+    console.log(`
+    
+    
+    
+    ERROR IN DRAIN OFF
+    
+    `);
     console.log(error);
-    res.sendStatus(500);
+    res.send(response.data);
+    // res.sendStatus(500);
   });
 });
 

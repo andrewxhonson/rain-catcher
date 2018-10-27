@@ -6,35 +6,40 @@ myApp.controller('HomeController', ['HomeService', '$interval', '$http', functio
     self.stream = [];
 
 
-    self.drainMode = false;
+    self.drainMode = 'waiting';
     self.drainModeLastTried = false;
 
     self.drain = function(action) {
       if (action) { // start
         self.drainModeLastTried = true;
 
-        $http.post('/api/drain/on')
+        $http.get('/api/drain/on')
         .then( function(response) {
+          self.drainMode = response.data.data.return_value;
           console.log(response);
         })
         .catch( function(error) {
+          self.drainMode = response.data.data.return_value;
           console.log('error in drain');
         });
 
       } else {
         self.drainModeLastTried = false;
         
-        $http.post('api/drain/off')
+        $http.get('api/drain/off')
         .then( function(response) {
+          self.drainMode = response.data.data.return_value;
           console.log(response);
         })
         .catch( function(error) {
+          self.drainMode = response.data.data.return_value;
           console.log('error in drain');
         });
 
       }
 
     };
+    self.drain(false);
 
     //time
     self.time = 0;

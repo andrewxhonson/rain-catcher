@@ -1,6 +1,9 @@
 
 <p><b>Drain Mode:</b> {{vm.drainMode}} (last tried: {{vm.drainModeLastTried}})</p>
 
+{{vm.drainMode}}
+<div ng-if="vm.drainMode === 'waiting'">LOADING...</div>
+
 <button ng-if="!vm.drainModeLastTried" ng-click="vm.drain(true)">Start Draining</button>
 <button ng-if="vm.drainModeLastTried" ng-click="vm.drain(false)">Stop Draining</button>
 
